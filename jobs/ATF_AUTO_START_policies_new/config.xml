@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.25.0">
+      <projectUrl>https://github.com/smartdevicelink/sdl_atf/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SDL_BUILD</name>
+          <description></description>
+          <defaultValue>27</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>POLICY</name>
+          <description></description>
+          <defaultValue>BASE</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>PULL_ID</name>
+          <description></description>
+          <defaultValue>0</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.9.0">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>2</maxConcurrentTotal>
+      <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
+      <throttleEnabled>true</throttleEnabled>
+      <throttleOption>project</throttleOption>
+      <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
+      <paramsToUseForLimit></paramsToUseForLimit>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.0.1">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/smartdevicelink/sdl_atf</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>752d9aec810ccb2a30ab6b53c587f8bb8ef1c545</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>atf_slave</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+sudo apt-get -y install sqlite
+git submodule init
+git submodule update
+make
+
+wget http://172.30.23.4:8081/artifactory/Utils/ATF_script.sh
+sudo chmod +x ATF_script.sh
+sudo chmod 777 ATF_script.sh
+
+
+
+echo &quot;Script started&quot;
+
+seconds2time ()
+{
+   T=$1
+   D=$((T/60/60/24))
+   H=$((T/60/60%24))
+   M=$((T/60%60))
+   S=$((T%60))
+
+   if [[ ${D} != 0 ]]
+   then
+      printf &apos;%d days %02d:%02d:%02d&apos; $D $H $M $S
+   else
+      printf &apos;%02d:%02d:%02d&apos; $H $M $S
+   fi
+}
+
+mkdir aut
+cd aut
+if [ &quot;$POLICY&quot; == &quot;BASE&quot; ]; then
+	wget http://172.30.23.4:8081/artifactory/OpenSDL/${SDL_BUILD}/OpenSDL.tar.gz
+else
+	wget http://172.30.23.4:8081/artifactory/OpenSDL_${POLICY}/${SDL_BUILD}/OpenSDL.tar.gz
+fi
+tar -xvf OpenSDL.tar.gz
+cd bin
+pwd
+export LD_LIBRARY_PATH=.
+sudo ldconfig
+cd ../..
+git clone https://github.com/smartdevicelink/sdl_atf_test_scripts.git
+cd sdl_atf_test_scripts
+git checkout feature/external_proprietary_policy
+cd ..
+cp -r sdl_atf_test_scripts/. ${WORKSPACE}/
+pwd
+cp -rf aut/bin/api/. ${WORKSPACE}/data/
+ls -l data/
+echo ${POLICY}
+
+echo &quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;Report&lt;/title&gt;&lt;/head&gt;&lt;table border=&apos;1&apos;&gt;&quot; &gt;&gt; atf_report.html
+echo &quot;&lt;h3&gt;${JOB_NAME}&lt;/h3&gt;&quot; &gt;&gt; atf_report.html
+echo &quot;&lt;tr&gt;&lt;td&gt;Test name&lt;/td&gt;&lt;td&gt;Test Result&lt;/td&gt;&lt;td&gt;Execution time.&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; atf_report.html
+echo &quot;&lt;testsuites&gt;&quot; &gt;&gt; junit.xml
+total_time=0;
+
+for i in $(cat ./test_sets/policies_happy_paths.txt);
+do
+ echo $i;
+ start=$SECONDS;
+ ps -aux | grep smartDeviceLinkCore | awk &apos;{print $2}&apos; | xargs kill -9;
+ ./start.sh --sdl-core=aut/bin $i | tee console.log ; result=${PIPESTATUS[0]};
+ if [ $result -eq 0 ]; then
+  	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+    echo &quot;&lt;testsuite name=&apos;$(basename $i .lua)&apos;&gt;&quot; &gt;&gt; junit.xml
+ 	echo &quot;Test passed!&quot;;
+    echo &quot;&lt;tr&gt; &lt;td&gt;$i&lt;/td&gt;&lt;td bgcolor=&apos;green&apos;&gt;Passed!&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; atf_report.html;
+    grep -w &quot;SUCCESS&quot; console.log | while read -r line; do
+    	arr=($line)
+        echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos; /&gt;&quot; &gt;&gt; junit.xml;
+	done
+    grep -w &quot;FAIL&quot; console.log | while read -r line; do
+    	arr=($line)
+        echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; junit.xml;
+    	echo &quot;&lt;failure message=&apos;Test failed&apos;&gt;${arr[1]}&lt;/failure&gt;&quot; &gt;&gt; junit.xml;
+        echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; junit.xml
+	done 
+ fi
+ if [ $result -eq 2 ]; then
+  	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+ 	echo &quot;&lt;tr&gt; &lt;td&gt;$i&lt;/td&gt;&lt;td bgcolor=&apos;red&apos;&gt;Failed!&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; atf_report.html;
+    echo &quot;&lt;testsuite name=&apos;$(basename $i .lua)&apos;&gt;&quot; &gt;&gt; junit.xml
+    grep -w &quot;SUCCESS&quot; console.log | while read -r line; do
+    	arr=($line)
+    	echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos; /&gt;&quot; &gt;&gt; junit.xml;
+	done 
+    grep -w &quot;FAIL&quot; console.log | while read -r line; do
+    	arr=($line)
+        echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; junit.xml;
+    	echo &quot;&lt;failure message=&apos;Test failed&apos;&gt;${arr[1]}&lt;/failure&gt;&quot; &gt;&gt; junit.xml;
+        echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; junit.xml
+	done  
+    echo &quot;Test failed with exit code = $result!&quot;;
+    failed=1;
+ fi
+ if [ $result -ne 0 ] &amp;&amp; [ $result -ne 2 ]; then
+ 	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+ 	echo &quot;&lt;tr&gt; &lt;td&gt;$i&lt;/td&gt;&lt;td bgcolor=&apos;red&apos;&gt;Failed!&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; atf_report.html;
+    echo &quot;&lt;testsuite name=&apos;$(basename $i .lua)&apos;&gt;&quot; &gt;&gt; junit.xml
+    grep -w &quot;SUCCESS&quot; console.log | while read -r line; do
+    	arr=($line)
+    	echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos; /&gt;&quot; &gt;&gt; junit.xml;
+	done 
+    grep -w &quot;FAIL&quot; console.log | while read -r line; do
+    	arr=($line)
+        echo &quot;&lt;testcase name=&apos;${arr[1]}&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; junit.xml;
+    	echo &quot;&lt;failure message=&apos;Test failed&apos;&gt;${arr[1]}&lt;/failure&gt;&quot; &gt;&gt; junit.xml;
+        echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; junit.xml
+	done  
+    echo &quot;&lt;testcase name=&apos;Test suite exit status&apos; classname=&apos;$(basename $i .lua)&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; junit.xml;
+   	echo &quot;&lt;failure message=&apos;Something goes wrong&apos;&gt;Test exited with exit code = $result&lt;/failure&gt;&quot; &gt;&gt; junit.xml;
+    echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; junit.xml
+    echo &quot;Test failed with exit code = $result!&quot;;
+    failed=1;
+ fi
+ echo &quot;Test finished!&quot;;
+ echo &quot;&lt;/testsuite&gt;&quot; &gt;&gt; junit.xml
+ cp ErrorLog.txt ErrorLog-$(basename $i .lua).txt
+ cp aut/bin/SmartDeviceLinkCore.log ${WORKSPACE}/SDL_Log_$(basename $i .lua).txt
+ rm -rf aut/bin/smartDeviceLinkCore.log
+ ps -aux | grep smartDeviceLinkCore | awk &apos;{print $2}&apos; | xargs kill -9;
+done
+echo &quot;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;Total time: $(seconds2time $total_time)&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; atf_report.html
+echo &quot;&lt;/table&gt;&lt;/html&gt;&quot; &gt;&gt; atf_report.html
+echo &quot;&lt;/testsuites&gt;&quot; &gt;&gt; junit.xml
+tar -zcvf SDL_Logs.tar.gz ${WORKSPACE}/SDL_Log_*.txt
+tar -zcvf TestingReports.tar.gz TestingReports/
+tar -zcvf ErrorLogs.tar.gz ErrorLog-*.txt
+
+echo &quot;Script ended&quot;
+if [ $failed -ne 0 ]; then
+  if [ ${PULL_ID} -ne 0 ]; then
+	curl -H &quot;Content-type: application/json&quot; -X POST -u JenkinsSDLOnCloud:1qaz@WSX -d &quot;{\&quot;body\&quot;: \&quot;ATF failed ${BUILD_URL}\&quot;, \&quot;in_reply_to\&quot;: 0}&quot; https://api.github.com/repos/smartdevicelink/sdl_core/issues/${PULL_ID}/comments
+  fi
+ exit 1
+fi
+
+#./ATF_script.sh
+
+#rc=$?; if [[ $rc != 0 ]]; then exit 1 $rc; fi
+
+
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>atf_report.html, TestingReports.tar.gz, junit.xml, ErrorLogs.tar.gz, SDL_Logs.tar.gz</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.19">
+      <testResults>junit.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <healthScaleFactor>1.0</healthScaleFactor>
+      <allowEmptyResults>false</allowEmptyResults>
+    </hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.52">
+      <recipientList>AKutsan@luxoft.com, AGovorov@luxoft.com, MGhiumiusliu@luxoft.com, IIKovalenko@luxoft.com, OVVasyliev@luxoft.com</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+          <email>
+            <recipientList>AKutsan@luxoft.com, AGovorov@luxoft.com, MGhiumiusliu@luxoft.com, IIKovalenko@luxoft.com, OVVasyliev@luxoft.com</recipientList>
+            <subject>$DEFAULT_SUBJECT</subject>
+            <body>${SCRIPT, template=&quot;groovy-html.template&quot;}</body>
+            <recipientProviders>
+              <hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>
+              <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/>
+            </recipientProviders>
+            <attachmentsPattern></attachmentsPattern>
+            <attachBuildLog>false</attachBuildLog>
+            <compressBuildLog>false</compressBuildLog>
+            <replyTo>mailer@lc-jenkinsdockerhost.luxoft.com</replyTo>
+            <contentType>project</contentType>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+      </configuredTriggers>
+      <contentType>default</contentType>
+      <defaultSubject>$DEFAULT_SUBJECT</defaultSubject>
+      <defaultContent>${SCRIPT, template=&quot;groovy-html.template&quot;}</defaultContent>
+      <attachmentsPattern></attachmentsPattern>
+      <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+      <postsendScript>$DEFAULT_POSTSEND_SCRIPT</postsendScript>
+      <attachBuildLog>false</attachBuildLog>
+      <compressBuildLog>false</compressBuildLog>
+      <replyTo>mailer@lc-jenkinsdockerhost.luxoft.com</replyTo>
+      <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.7"/>
+    <EnvInjectBuildWrapper plugin="envinject@1.93.1">
+      <info>
+        <propertiesContent>QMAKE=/opt/qt53/bin/qmake</propertiesContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
+  </buildWrappers>
+</project>

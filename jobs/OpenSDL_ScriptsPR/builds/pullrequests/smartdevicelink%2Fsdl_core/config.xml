@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.ghprb.GhprbRepository plugin="ghprb@1.33.1">
+  <reponame>smartdevicelink/sdl_core</reponame>
+  <pullRequests class="concurrent-hash-map">
+    <entry>
+      <int>1056</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1056</id>
+        <updated>2016-11-25 10:31:59.0 UTC</updated>
+        <head>e3c0444e88b026fcc4b60698032ae01bfb5df8dd</head>
+        <base>cd9c239076b02435572a2753abc25d848d833cfd</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>930</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>930</id>
+        <updated>2016-11-14 14:33:37.0 UTC</updated>
+        <head>203aedc01958fe8e0825f70599f8cda0f621ae5c</head>
+        <base>ddef86df90c0f33b244419c1a9d7aa36d8a9322b</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1067</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1067</id>
+        <updated>2016-11-24 09:45:56.0 UTC</updated>
+        <head>9d8e4a3be9546e804fb0fcbeb43455e321f05c5a</head>
+        <base>2b79e5b6b7cbdf0ff6e0427dba8aa703dff12139</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>139</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>139</id>
+        <updated>2016-10-03 07:54:48.0 UTC</updated>
+        <head>9ae3a1cc4b7a9032190111e85087dc91303c5ebf</head>
+        <base>61393c865dc3a84cb597151102e2a61c1e66c8cd</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1069</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1069</id>
+        <updated>2016-11-25 14:39:35.0 UTC</updated>
+        <head>d242db20807f25b88d998ad75f277ebb906222e0</head>
+        <base>2b79e5b6b7cbdf0ff6e0427dba8aa703dff12139</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1037</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1037</id>
+        <updated>2016-11-22 08:06:38.0 UTC</updated>
+        <head>9a7899ca898d51bd5bd8076cf968279dd49114cd</head>
+        <base>ac259b0080619b6741c4e296d64ab5061813145f</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1070</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1070</id>
+        <updated>2016-11-25 14:36:31.0 UTC</updated>
+        <head>566c9e021a6b05f147edcb704da01ac94237857d</head>
+        <base>965f34cac1c7b1b106b80d14625129c18c1e9716</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1038</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1038</id>
+        <updated>2016-11-21 08:29:03.0 UTC</updated>
+        <head>388235349cbec34c97751e1b0d0e44ee1ff74260</head>
+        <base>ac259b0080619b6741c4e296d64ab5061813145f</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>910</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>910</id>
+        <updated>2016-11-21 08:23:28.0 UTC</updated>
+        <head>a781ac08f26fc73556377628eaeb49b70cde6ee2</head>
+        <base>ddef86df90c0f33b244419c1a9d7aa36d8a9322b</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>274</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>274</id>
+        <updated>2016-10-27 15:30:51.0 UTC</updated>
+        <head>a5fbcbe1e4a6feb4876bc150da0c199e1916e645</head>
+        <base>d2aa2f5ba839ab016708d298292428063d6fd5ea</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1043</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1043</id>
+        <updated>2016-11-24 15:17:06.0 UTC</updated>
+        <head>f9f509a779c38f7624017925c4c371096b3fc0ec</head>
+        <base>d98c8a8b40942efc4c0cee159687ee4c6c1317f6</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>979</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>979</id>
+        <updated>2016-11-21 08:17:38.0 UTC</updated>
+        <head>f677eaf3ecc7426a12cccfa966de6f96343df804</head>
+        <base>ac259b0080619b6741c4e296d64ab5061813145f</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1045</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1045</id>
+        <updated>2016-11-24 15:15:58.0 UTC</updated>
+        <head>2de99abce3d05d493a63fa7fecbcc613fc0f6e52</head>
+        <base>d98c8a8b40942efc4c0cee159687ee4c6c1317f6</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>950</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>950</id>
+        <updated>2016-11-14 15:08:44.0 UTC</updated>
+        <head>aad12708686bdaf1ee19ec105c583ca60c34f32d</head>
+        <base>a6c32b45832653d6b851be9b19355fa35f377e07</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>951</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>951</id>
+        <updated>2016-11-14 15:10:09.0 UTC</updated>
+        <head>cff1817e37f5a1a488fdd6dec8b08ffe017ce8c5</head>
+        <base>a6c32b45832653d6b851be9b19355fa35f377e07</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>920</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>920</id>
+        <updated>2016-11-21 08:20:18.0 UTC</updated>
+        <head>456972eb26cba4c8f2d0a34667034e9d83a9761c</head>
+        <base>21426163e2829a64ac0133c22c7e90b4abdc23b7</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>568</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>568</id>
+        <updated>2016-11-14 14:34:18.0 UTC</updated>
+        <head>d781ccc7b6700cce66cb4aa72ba163515637069e</head>
+        <base>bcf8405bbcb80823ac8bda564115695826ca99c4</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>953</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>953</id>
+        <updated>2016-11-08 11:33:24.0 UTC</updated>
+        <head>820964e336a0499d141f78c0be2af65364e999aa</head>
+        <base>ddef86df90c0f33b244419c1a9d7aa36d8a9322b</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>218</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>218</id>
+        <updated>2016-03-21 08:21:52.0 UTC</updated>
+        <head>089d7c52696161a932b937789fac0162f6e17a1b</head>
+        <base>5d5d8cffbbc7a846b7399fae0c6c323e1012ab9c</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>1051</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>1051</id>
+        <updated>2016-11-22 12:00:14.0 UTC</updated>
+        <head>fff3efd28e21fe112c4930a7d25d84daa5dd1fd3</head>
+        <base>cd9c239076b02435572a2753abc25d848d833cfd</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+    <entry>
+      <int>924</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>924</id>
+        <updated>2016-11-16 19:31:40.0 UTC</updated>
+        <head>7fcb9bed65dee5b12668300aebc294c499f9d063</head>
+        <base>a6c32b45832653d6b851be9b19355fa35f377e07</base>
+        <accepted>true</accepted>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+  </pullRequests>
+</org.jenkinsci.plugins.ghprb.GhprbRepository>

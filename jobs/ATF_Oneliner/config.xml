@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.datadog.jenkins.plugins.datadog.DatadogJobProperty plugin="datadog@0.5.6">
+      <emitOnCheckout>false</emitOnCheckout>
+    </org.datadog.jenkins.plugins.datadog.DatadogJobProperty>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>10</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>10</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
+      <projectUrl>https://github.com/smartdevicelink/sdl_atf/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SDL_BUILD</name>
+          <description></description>
+          <defaultValue>38</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>POLICY</name>
+          <description></description>
+          <defaultValue>PROPRIETARY</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>RC</name>
+          <description></description>
+          <defaultValue>ON</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TEST_SET</name>
+          <description></description>
+          <defaultValue>policies_smoke.txt</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BRANCH</name>
+          <description></description>
+          <defaultValue>feature/extended_policy_functionality</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>REPOSITORY</name>
+          <description></description>
+          <defaultValue>https://github.com/smartdevicelink/sdl_atf_test_scripts</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ATF_REVISION</name>
+          <description></description>
+          <defaultValue>develop</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SPACE</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TEST_LINE</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TMP_DIR</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.9.0">
+      <maxConcurrentPerNode>1</maxConcurrentPerNode>
+      <maxConcurrentTotal>10</maxConcurrentTotal>
+      <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
+      <throttleEnabled>true</throttleEnabled>
+      <throttleOption>project</throttleOption>
+      <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
+      <paramsToUseForLimit></paramsToUseForLimit>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <quietPeriod>5</quietPeriod>
+  <assignedNode>tmp_atf</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+ls -l
+
+cat TEST_LINE
+
+cat TEST_LINE &gt; /home/jenkins/ATF_BASE/sdl_atf/test.txt
+cd /home/jenkins/ATF_BASE/sdl_atf
+ls -l
+cat test.txt
+
+mkdir aut
+cd aut
+wget http://172.30.23.4:8081/artifactory/OpenSDL_Func_Nightly/${SDL_BUILD}/OpenSDL_${POLICY}.tar.gz
+
+
+tar -xvf OpenSDL_${POLICY}.tar.gz
+cd bin
+pwd
+export LD_LIBRARY_PATH=.
+sudo ldconfig
+cd ../..
+git clone ${REPOSITORY}
+cd sdl_atf_test_scripts
+git checkout ${BRANCH}
+cd ..
+ls -l
+cp -r /home/jenkins/ATF_BASE/sdl_atf/sdl_atf_test_scripts/. /home/jenkins/ATF_BASE/sdl_atf/
+pwd
+cp -rf /home/jenkins/ATF_BASE/sdl_atf/aut/bin/api/. /home/jenkins/ATF_BASE/sdl_atf/data/
+ls -l data/
+echo ${POLICY}
+
+echo &quot;Backup SDL&quot;
+#Backup
+./SDL_environment_setup.sh -b /home/jenkins/ATF_BASE/sdl_atf/aut/bin
+
+seconds2time ()
+{
+   T=$1
+   D=$((T/60/60/24))
+   H=$((T/60/60%24))
+   M=$((T/60%60))
+   S=$((T%60))
+
+   if [[ ${D} != 0 ]]
+   then
+      printf &apos;%d days %02d:%02d:%02d&apos; $D $H $M $S
+   else
+      printf &apos;%02d:%02d:%02d&apos; $H $M $S
+   fi
+}
+failed=0;
+while read -r i
+do
+ test_script=$(echo $i | awk &apos;{print $1}&apos;)
+ if [[ $i != &quot;;&quot;* ]]; then
+ echo &quot;Jira = &quot; $i | awk &apos;{print $2}&apos;;
+ test_script=$(echo $i | awk &apos;{print $1}&apos;)
+ echo &quot;Script = &quot;$test_script
+ start=$SECONDS;
+ ps -aux | grep smartDeviceLinkCore | awk &apos;{print $2}&apos; | xargs kill -9;
+ ./start.sh --sdl-core=/home/jenkins/ATF_BASE/sdl_atf/aut/bin $test_script | tee console.log ; result=${PIPESTATUS[0]};
+ if [ $result -eq 0 ]; then
+  	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+	(( pased_tests=pased_tests+1 ))
+    echo $total_time &gt;&gt; ${TMP_DIR}/time.txt
+ 	echo &quot;Test passed&quot;;
+    echo &quot;&lt;tr&gt; &lt;td&gt;$test_script&lt;/td&gt;&lt;td bgcolor=&apos;green&apos;&gt;Passed&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;https://adc.luxoft.com/jira/browse/$(echo $i | awk &apos;{print $2}&apos;)&apos;&gt;$(echo $i | awk &apos;{print $2}&apos;)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; ${TMP_DIR}/atf_report.html;
+    echo &quot;&lt;testcase name=&apos;$(basename $test_script .lua)&apos; classname=&apos;lua&apos; time=&apos;$runtime&apos; /&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+    echo &quot;$(basename $test_script .lua)&quot; &gt;&gt; $TMP_DIR/success_tests.txt;
+ fi
+ if [ $result -eq 1 ]; then
+ 	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+	(( failed_tests=failed_tests+1 ))
+    echo $total_time &gt;&gt; ${TMP_DIR}/time.txt
+	ERROR=$(cat ErrorLog.txt);
+ 	echo &quot;&lt;tr&gt; &lt;td&gt;$test_script&lt;/td&gt;&lt;td bgcolor=&apos;orange&apos;&gt;Aborted&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;https://adc.luxoft.com/jira/browse/$(echo $i | awk &apos;{print $2}&apos;)&apos;&gt;$(echo $i | awk &apos;{print $2}&apos;)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; ${TMP_DIR}/atf_report.html;
+    echo &quot;&lt;testcase name=&apos;$(basename $test_script .lua)&apos; classname=&apos;lua&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+   	echo &quot;&lt;failure message=&apos;Something goes wrong&apos;&gt;$ERROR&lt;/failure&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+    echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml
+    echo &quot;Test aborted with exit code = $result!&quot;;
+	echo &quot;$(basename $test_script .lua)&quot; &gt;&gt; ${TMP_DIR}/failed_tests.txt;
+    failed=1;
+ fi
+ if [ $result -eq 2 ]; then
+ 	stop=$SECONDS;
+ 	(( runtime=stop-start ));
+ 	(( total_time=total_time+runtime ));
+	(( failed_tests=failed_tests+1 ))
+    echo $total_time &gt;&gt; ${TMP_DIR}/time.txt
+	ERROR=$(cat ErrorLog.txt);
+ 	echo &quot;&lt;tr&gt; &lt;td&gt;$test_script&lt;/td&gt;&lt;td bgcolor=&apos;red&apos;&gt;Failed&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;https://adc.luxoft.com/jira/browse/$(echo $i | awk &apos;{print $2}&apos;)&apos;&gt;$(echo $i | awk &apos;{print $2}&apos;)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; ${TMP_DIR}/atf_report.html;
+    echo &quot;&lt;testcase name=&apos;$(basename $test_script .lua)&apos; classname=&apos;lua&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+   	echo &quot;&lt;failure message=&apos;Something goes wrong&apos;&gt;$ERROR&lt;/failure&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+    echo &quot;&lt;/testcase&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml
+    echo &quot;Test failed with exit code = $result!&quot;;
+	echo &quot;$(basename $test_script .lua)&quot; &gt;&gt; ${TMP_DIR}/failed_tests.txt;
+    failed=1;
+ fi
+ echo &quot;Test finished!&quot;;
+ cp ErrorLog.txt ${TMP_DIR}/ErrorLog-$(basename $test_script .lua).txt
+ cp aut/bin/SmartDeviceLinkCore.log ${TMP_DIR}//SDL_Log_$(basename $test_script .lua).txt
+ rm -rf aut/bin/smartDeviceLinkCore.log
+ ps -aux | grep smartDeviceLinkCore | awk &apos;{print $2}&apos; | xargs kill -9;
+ echo &quot;Clean SDL&quot;
+ #Clean
+ ./SDL_environment_setup.sh -c /home/jenkins/ATF_BASE/sdl_atf/aut/bin
+ echo &quot;Restore SDL&quot;
+ #Restore
+ ./SDL_environment_setup.sh -r /home/jenkins/ATF_BASE/sdl_atf/aut/bin
+ else
+  echo &quot;Test skipped - $i&quot;
+  echo &quot;&lt;tr&gt; &lt;td&gt;$test_script&lt;/td&gt;&lt;td bgcolor=&apos;yellow&apos;&gt;Skipped&lt;/td&gt;&lt;td&gt;$runtime&lt;/td&gt;&lt;td&gt;&lt;a href=&apos;https://adc.luxoft.com/jira/browse/$(echo $i | awk &apos;{print $2}&apos;)&apos;&gt;$(echo $i | awk &apos;{print $2}&apos;)&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&quot; &gt;&gt; ${TMP_DIR}/atf_report.html;
+  echo &quot;&lt;testcase name=&apos;$(basename $test_script .lua)&apos; classname=&apos;lua&apos; time=&apos;$runtime&apos;&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml;
+  echo &quot;&lt;skipped /&gt;&lt;/testcase&gt;&quot; &gt;&gt; ${TMP_DIR}/junit.xml
+  echo &quot;Test failed with exit code = $result!&quot;;
+  echo &quot;$(basename $test_script .lua)&quot; &gt;&gt; ${TMP_DIR}/skipped_tests.txt;  
+fi 
+done &lt; test.txt
+
+mkdir ${TMP_DIR}/TestingReports/
+cp -r /home/jenkins/ATF_BASE/sdl_atf/TestingReports/* ${TMP_DIR}/TestingReports/
+#tar -zcvf SDL_Logs.tar.gz ${TMP_DIR}//SDL_Log_*.txt
+#tar -zcvf TestingReports.tar.gz TestingReports/
+#tar -zcvf ErrorLogs.tar.gz ${TMP_DIR}/ErrorLog-*.txt
+
+#echo &quot;Script ended&quot;
+#echo &quot;{ATF_PASSED:${pased_tests} }&quot;
+#echo &quot;{ATF_FAILED:${failed_tests} }&quot;
+#echo &quot;{ATF_TOTAL:$(( pased_tests+failed_tests )) }&quot;
+
+#wget -O old_failed_tests.txt ${JOB_URL}lastCompletedBuild/artifact/failed_tests.txt
+
+
+
+#cp new_failures.txt new_failures($NUMOFLINES).txt
+
+sudo chmod -R 777 ${TMP_DIR}
+sudo chown -R jenkins:jenkins ${TMP_DIR}
+
+if [ $failed -ne 0 ]; then
+ exit 1
+fi</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.18">
+      <strategy class="hudson.plugins.build_timeout.impl.AbsoluteTimeOutStrategy">
+        <timeoutMinutes>240</timeoutMinutes>
+      </strategy>
+      <operationList>
+        <hudson.plugins.build__timeout.operations.FailOperation/>
+      </operationList>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+    <EnvInjectBuildWrapper plugin="envinject@1.93.1">
+      <info>
+        <propertiesContent>QMAKE=/opt/qt53/bin/qmake</propertiesContent>
+        <loadFilesFromMaster>false</loadFilesFromMaster>
+      </info>
+    </EnvInjectBuildWrapper>
+  </buildWrappers>
+</project>

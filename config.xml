@@ -1,0 +1,1528 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors>
+    <string>OldData</string>
+  </disabledAdministrativeMonitors>
+  <version>2.61</version>
+  <numExecutors>0</numExecutors>
+  <mode>EXCLUSIVE</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.ProjectMatrixAuthorizationStrategy">
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:admin</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:admin2</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:AKutsan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:vkushnirenko</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:vvv</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:admin</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:admin2</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:AKutsan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:vkushnirenko</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:vvv</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:admin</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:admin2</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:AKutsan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:vkushnirenko</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:vvv</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:admin</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:admin2</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:AKutsan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:vkushnirenko</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:vvv</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:admin</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:admin2</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:AKutsan</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:tester</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:vkushnirenko</permission>
+    <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:vvv</permission>
+    <permission>hudson.model.Computer.Build:admin</permission>
+    <permission>hudson.model.Computer.Build:admin2</permission>
+    <permission>hudson.model.Computer.Build:AKutsan</permission>
+    <permission>hudson.model.Computer.Build:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Build:vvv</permission>
+    <permission>hudson.model.Computer.Configure:admin</permission>
+    <permission>hudson.model.Computer.Configure:admin2</permission>
+    <permission>hudson.model.Computer.Configure:AKutsan</permission>
+    <permission>hudson.model.Computer.Configure:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Configure:vvv</permission>
+    <permission>hudson.model.Computer.Connect:admin</permission>
+    <permission>hudson.model.Computer.Connect:admin2</permission>
+    <permission>hudson.model.Computer.Connect:AKutsan</permission>
+    <permission>hudson.model.Computer.Connect:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Connect:vvv</permission>
+    <permission>hudson.model.Computer.Create:admin</permission>
+    <permission>hudson.model.Computer.Create:admin2</permission>
+    <permission>hudson.model.Computer.Create:AKutsan</permission>
+    <permission>hudson.model.Computer.Create:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Create:vvv</permission>
+    <permission>hudson.model.Computer.Delete:admin</permission>
+    <permission>hudson.model.Computer.Delete:admin2</permission>
+    <permission>hudson.model.Computer.Delete:AKutsan</permission>
+    <permission>hudson.model.Computer.Delete:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Delete:vvv</permission>
+    <permission>hudson.model.Computer.Disconnect:admin</permission>
+    <permission>hudson.model.Computer.Disconnect:admin2</permission>
+    <permission>hudson.model.Computer.Disconnect:AKutsan</permission>
+    <permission>hudson.model.Computer.Disconnect:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Disconnect:vvv</permission>
+    <permission>hudson.model.Computer.Provision:AKutsan</permission>
+    <permission>hudson.model.Computer.Provision:vkushnirenko</permission>
+    <permission>hudson.model.Computer.Provision:vvv</permission>
+    <permission>hudson.model.Hudson.Administer:admin</permission>
+    <permission>hudson.model.Hudson.Administer:admin2</permission>
+    <permission>hudson.model.Hudson.Administer:AKutsan</permission>
+    <permission>hudson.model.Hudson.Administer:vkushnirenko</permission>
+    <permission>hudson.model.Hudson.Administer:vvv</permission>
+    <permission>hudson.model.Hudson.Read:admin</permission>
+    <permission>hudson.model.Hudson.Read:admin2</permission>
+    <permission>hudson.model.Hudson.Read:AKutsan</permission>
+    <permission>hudson.model.Hudson.Read:anonymous</permission>
+    <permission>hudson.model.Hudson.Read:dboltovskyi</permission>
+    <permission>hudson.model.Hudson.Read:IIKovalenko</permission>
+    <permission>hudson.model.Hudson.Read:TestUser</permission>
+    <permission>hudson.model.Hudson.Read:vkushnirenko</permission>
+    <permission>hudson.model.Hudson.Read:vvv</permission>
+    <permission>hudson.model.Item.Build:admin</permission>
+    <permission>hudson.model.Item.Build:admin2</permission>
+    <permission>hudson.model.Item.Build:AKutsan</permission>
+    <permission>hudson.model.Item.Build:dboltovskyi</permission>
+    <permission>hudson.model.Item.Build:IIKovalenko</permission>
+    <permission>hudson.model.Item.Build:tester</permission>
+    <permission>hudson.model.Item.Build:TestUser</permission>
+    <permission>hudson.model.Item.Build:vkushnirenko</permission>
+    <permission>hudson.model.Item.Build:vvv</permission>
+    <permission>hudson.model.Item.Cancel:admin</permission>
+    <permission>hudson.model.Item.Cancel:admin2</permission>
+    <permission>hudson.model.Item.Cancel:AKutsan</permission>
+    <permission>hudson.model.Item.Cancel:dboltovskyi</permission>
+    <permission>hudson.model.Item.Cancel:IIKovalenko</permission>
+    <permission>hudson.model.Item.Cancel:tester</permission>
+    <permission>hudson.model.Item.Cancel:TestUser</permission>
+    <permission>hudson.model.Item.Cancel:vkushnirenko</permission>
+    <permission>hudson.model.Item.Cancel:vvv</permission>
+    <permission>hudson.model.Item.Configure:admin</permission>
+    <permission>hudson.model.Item.Configure:admin2</permission>
+    <permission>hudson.model.Item.Configure:AKutsan</permission>
+    <permission>hudson.model.Item.Configure:TestUser</permission>
+    <permission>hudson.model.Item.Configure:vkushnirenko</permission>
+    <permission>hudson.model.Item.Configure:vvv</permission>
+    <permission>hudson.model.Item.Create:admin</permission>
+    <permission>hudson.model.Item.Create:admin2</permission>
+    <permission>hudson.model.Item.Create:AKutsan</permission>
+    <permission>hudson.model.Item.Create:vkushnirenko</permission>
+    <permission>hudson.model.Item.Create:vvv</permission>
+    <permission>hudson.model.Item.Delete:admin</permission>
+    <permission>hudson.model.Item.Delete:admin2</permission>
+    <permission>hudson.model.Item.Delete:AKutsan</permission>
+    <permission>hudson.model.Item.Delete:vkushnirenko</permission>
+    <permission>hudson.model.Item.Delete:vvv</permission>
+    <permission>hudson.model.Item.Discover:admin</permission>
+    <permission>hudson.model.Item.Discover:admin2</permission>
+    <permission>hudson.model.Item.Discover:AKutsan</permission>
+    <permission>hudson.model.Item.Discover:tester</permission>
+    <permission>hudson.model.Item.Discover:vkushnirenko</permission>
+    <permission>hudson.model.Item.Discover:vvv</permission>
+    <permission>hudson.model.Item.Move:admin</permission>
+    <permission>hudson.model.Item.Move:admin2</permission>
+    <permission>hudson.model.Item.Move:AKutsan</permission>
+    <permission>hudson.model.Item.Move:vkushnirenko</permission>
+    <permission>hudson.model.Item.Move:vvv</permission>
+    <permission>hudson.model.Item.Read:admin</permission>
+    <permission>hudson.model.Item.Read:admin2</permission>
+    <permission>hudson.model.Item.Read:AKutsan</permission>
+    <permission>hudson.model.Item.Read:anonymous</permission>
+    <permission>hudson.model.Item.Read:dboltovskyi</permission>
+    <permission>hudson.model.Item.Read:IIKovalenko</permission>
+    <permission>hudson.model.Item.Read:tester</permission>
+    <permission>hudson.model.Item.Read:TestUser</permission>
+    <permission>hudson.model.Item.Read:vkushnirenko</permission>
+    <permission>hudson.model.Item.Read:vvv</permission>
+    <permission>hudson.model.Item.ViewStatus:admin</permission>
+    <permission>hudson.model.Item.ViewStatus:admin2</permission>
+    <permission>hudson.model.Item.ViewStatus:AKutsan</permission>
+    <permission>hudson.model.Item.ViewStatus:anonymous</permission>
+    <permission>hudson.model.Item.ViewStatus:dboltovskyi</permission>
+    <permission>hudson.model.Item.ViewStatus:IIKovalenko</permission>
+    <permission>hudson.model.Item.ViewStatus:tester</permission>
+    <permission>hudson.model.Item.ViewStatus:TestUser</permission>
+    <permission>hudson.model.Item.ViewStatus:vkushnirenko</permission>
+    <permission>hudson.model.Item.ViewStatus:vvv</permission>
+    <permission>hudson.model.Item.Workspace:admin</permission>
+    <permission>hudson.model.Item.Workspace:admin2</permission>
+    <permission>hudson.model.Item.Workspace:AKutsan</permission>
+    <permission>hudson.model.Item.Workspace:tester</permission>
+    <permission>hudson.model.Item.Workspace:vkushnirenko</permission>
+    <permission>hudson.model.Item.Workspace:vvv</permission>
+    <permission>hudson.model.Run.Delete:admin</permission>
+    <permission>hudson.model.Run.Delete:admin2</permission>
+    <permission>hudson.model.Run.Delete:AKutsan</permission>
+    <permission>hudson.model.Run.Delete:vkushnirenko</permission>
+    <permission>hudson.model.Run.Delete:vvv</permission>
+    <permission>hudson.model.Run.Replay:admin</permission>
+    <permission>hudson.model.Run.Replay:admin2</permission>
+    <permission>hudson.model.Run.Replay:AKutsan</permission>
+    <permission>hudson.model.Run.Replay:tester</permission>
+    <permission>hudson.model.Run.Replay:vkushnirenko</permission>
+    <permission>hudson.model.Run.Replay:vvv</permission>
+    <permission>hudson.model.Run.Update:admin</permission>
+    <permission>hudson.model.Run.Update:admin2</permission>
+    <permission>hudson.model.Run.Update:AKutsan</permission>
+    <permission>hudson.model.Run.Update:vkushnirenko</permission>
+    <permission>hudson.model.Run.Update:vvv</permission>
+    <permission>hudson.model.View.Configure:admin</permission>
+    <permission>hudson.model.View.Configure:admin2</permission>
+    <permission>hudson.model.View.Configure:AKutsan</permission>
+    <permission>hudson.model.View.Configure:vkushnirenko</permission>
+    <permission>hudson.model.View.Configure:vvv</permission>
+    <permission>hudson.model.View.Create:admin</permission>
+    <permission>hudson.model.View.Create:admin2</permission>
+    <permission>hudson.model.View.Create:AKutsan</permission>
+    <permission>hudson.model.View.Create:vkushnirenko</permission>
+    <permission>hudson.model.View.Create:vvv</permission>
+    <permission>hudson.model.View.Delete:admin</permission>
+    <permission>hudson.model.View.Delete:admin2</permission>
+    <permission>hudson.model.View.Delete:AKutsan</permission>
+    <permission>hudson.model.View.Delete:vkushnirenko</permission>
+    <permission>hudson.model.View.Delete:vvv</permission>
+    <permission>hudson.model.View.Read:admin</permission>
+    <permission>hudson.model.View.Read:admin2</permission>
+    <permission>hudson.model.View.Read:AKutsan</permission>
+    <permission>hudson.model.View.Read:anonymous</permission>
+    <permission>hudson.model.View.Read:dboltovskyi</permission>
+    <permission>hudson.model.View.Read:IIKovalenko</permission>
+    <permission>hudson.model.View.Read:TestUser</permission>
+    <permission>hudson.model.View.Read:vkushnirenko</permission>
+    <permission>hudson.model.View.Read:vvv</permission>
+    <permission>hudson.scm.SCM.Tag:admin</permission>
+    <permission>hudson.scm.SCM.Tag:admin2</permission>
+    <permission>hudson.scm.SCM.Tag:AKutsan</permission>
+    <permission>hudson.scm.SCM.Tag:vkushnirenko</permission>
+    <permission>hudson.scm.SCM.Tag:vvv</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Promote:vvv</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.PushToBintray:vvv</permission>
+    <permission>org.jfrog.hudson.ArtifactoryPlugin.Release:vvv</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.5">
+    <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
+  </markupFormatter>
+  <jdks/>
+  <viewsTabBar class="hudson.views.tabbar.DropDownViewsTabBar" plugin="dropdown-viewstabbar-plugin@1.7">
+    <dropDownGlobalConfiguration>
+      <showJobCount>true</showJobCount>
+      <filterViews>true</filterViews>
+    </dropDownGlobalConfiguration>
+  </viewsTabBar>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds>
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.2">
+      <name>dock</name>
+      <templates>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>2</configVersion>
+          <labelString>atf_slave</labelString>
+          <connector class="io.jenkins.docker.connector.DockerComputerSSHConnector">
+            <sshKeyStrategy class="io.jenkins.docker.connector.DockerComputerSSHConnector$ManuallyConfiguredSSHKey">
+              <credentialsId>393c537e-d99a-4cf9-9f8c-15e4d427c40d</credentialsId>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy" plugin="ssh-slaves@1.25"/>
+            </sshKeyStrategy>
+            <port>22</port>
+            <jvmOptions>-d64 -Xms1G -Xmx4G</jvmOptions>
+            <javaPath></javaPath>
+            <prefixStartSlaveCmd></prefixStartSlaveCmd>
+            <suffixStartSlaveCmd></suffixStartSlaveCmd>
+          </connector>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>6</instanceCap>
+          <mode>EXCLUSIVE</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <timeout>10</timeout>
+          </retentionStrategy>
+          <dockerTemplateBase>
+            <image>production_jenkins_agent:latest</image>
+            <pullCredentialsId></pullCredentialsId>
+            <dockerCommand></dockerCommand>
+            <hostname></hostname>
+            <dnsHosts/>
+            <network></network>
+            <volumes/>
+            <volumesFrom2/>
+            <environment/>
+            <bindPorts>22</bindPorts>
+            <bindAllPorts>false</bindAllPorts>
+            <memoryLimit>8192</memoryLimit>
+            <memorySwap>-1</memorySwap>
+            <cpuShares>5</cpuShares>
+            <privileged>true</privileged>
+            <tty>false</tty>
+            <extraHosts/>
+          </dockerTemplateBase>
+          <removeVolumes>false</removeVolumes>
+          <pullStrategy>PULL_NEVER</pullStrategy>
+          <nodeProperties class="empty-list"/>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
+      </templates>
+      <dockerApi>
+        <dockerHost plugin="docker-commons@1.11">
+          <uri>tcp://172.17.0.1:4550</uri>
+        </dockerHost>
+        <connectTimeout>60</connectTimeout>
+      </dockerApi>
+      <containerCap>100</containerCap>
+      <exposeDockerHost>false</exposeDockerHost>
+    </com.nirima.jenkins.plugins.docker.DockerCloud>
+    <com.nirima.jenkins.plugins.docker.DockerCloud plugin="docker-plugin@1.1.2">
+      <name>dock1</name>
+      <templates>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>2</configVersion>
+          <labelString>atf_slave3</labelString>
+          <connector class="io.jenkins.docker.connector.DockerComputerSSHConnector">
+            <sshKeyStrategy class="io.jenkins.docker.connector.DockerComputerSSHConnector$ManuallyConfiguredSSHKey">
+              <credentialsId>393c537e-d99a-4cf9-9f8c-15e4d427c40d</credentialsId>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy" plugin="ssh-slaves@1.25"/>
+            </sshKeyStrategy>
+            <port>22</port>
+            <jvmOptions>-d64</jvmOptions>
+            <javaPath></javaPath>
+            <prefixStartSlaveCmd></prefixStartSlaveCmd>
+            <suffixStartSlaveCmd></suffixStartSlaveCmd>
+          </connector>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <mode>EXCLUSIVE</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <timeout>10</timeout>
+          </retentionStrategy>
+          <dockerTemplateBase>
+            <image>atf_slave:v.5</image>
+            <pullCredentialsId></pullCredentialsId>
+            <dockerCommand></dockerCommand>
+            <hostname></hostname>
+            <dnsHosts/>
+            <network></network>
+            <volumes/>
+            <volumesFrom2/>
+            <environment/>
+            <bindPorts>22</bindPorts>
+            <bindAllPorts>false</bindAllPorts>
+            <memoryLimit>9192</memoryLimit>
+            <memorySwap>-1</memorySwap>
+            <cpuShares>5</cpuShares>
+            <privileged>true</privileged>
+            <tty>false</tty>
+            <extraHosts/>
+          </dockerTemplateBase>
+          <removeVolumes>false</removeVolumes>
+          <pullStrategy>PULL_NEVER</pullStrategy>
+          <nodeProperties class="empty-list"/>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>2</configVersion>
+          <labelString>test</labelString>
+          <connector class="io.jenkins.docker.connector.DockerComputerSSHConnector">
+            <sshKeyStrategy class="io.jenkins.docker.connector.DockerComputerSSHConnector$ManuallyConfiguredSSHKey">
+              <credentialsId>393c537e-d99a-4cf9-9f8c-15e4d427c40d</credentialsId>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy" plugin="ssh-slaves@1.25"/>
+            </sshKeyStrategy>
+            <port>22</port>
+            <jvmOptions>-d64</jvmOptions>
+            <javaPath></javaPath>
+            <prefixStartSlaveCmd></prefixStartSlaveCmd>
+            <suffixStartSlaveCmd></suffixStartSlaveCmd>
+          </connector>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <mode>EXCLUSIVE</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <timeout>10</timeout>
+          </retentionStrategy>
+          <dockerTemplateBase>
+            <image>atf_slave:v.5</image>
+            <pullCredentialsId></pullCredentialsId>
+            <dockerCommand></dockerCommand>
+            <hostname></hostname>
+            <dnsHosts/>
+            <network></network>
+            <volumes>
+              <string>/home/jenkins/sdl_core:/home/jenkins/sdl_core</string>
+            </volumes>
+            <volumesFrom2/>
+            <environment/>
+            <bindPorts>22</bindPorts>
+            <bindAllPorts>false</bindAllPorts>
+            <memoryLimit>9192</memoryLimit>
+            <memorySwap>-1</memorySwap>
+            <cpuShares>4</cpuShares>
+            <privileged>false</privileged>
+            <tty>false</tty>
+            <extraHosts/>
+          </dockerTemplateBase>
+          <removeVolumes>false</removeVolumes>
+          <pullStrategy>PULL_NEVER</pullStrategy>
+          <nodeProperties class="empty-list"/>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
+        <com.nirima.jenkins.plugins.docker.DockerTemplate>
+          <configVersion>2</configVersion>
+          <labelString>vvv</labelString>
+          <connector class="io.jenkins.docker.connector.DockerComputerSSHConnector">
+            <sshKeyStrategy class="io.jenkins.docker.connector.DockerComputerSSHConnector$ManuallyConfiguredSSHKey">
+              <credentialsId>393c537e-d99a-4cf9-9f8c-15e4d427c40d</credentialsId>
+              <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy" plugin="ssh-slaves@1.25"/>
+            </sshKeyStrategy>
+            <port>22</port>
+            <jvmOptions>-d64</jvmOptions>
+            <javaPath></javaPath>
+            <prefixStartSlaveCmd></prefixStartSlaveCmd>
+            <suffixStartSlaveCmd></suffixStartSlaveCmd>
+          </connector>
+          <remoteFs>/home/jenkins</remoteFs>
+          <instanceCap>2147483647</instanceCap>
+          <mode>EXCLUSIVE</mode>
+          <retentionStrategy class="com.nirima.jenkins.plugins.docker.strategy.DockerOnceRetentionStrategy">
+            <timeout>10</timeout>
+          </retentionStrategy>
+          <dockerTemplateBase>
+            <image>atf_slave:v.5</image>
+            <pullCredentialsId></pullCredentialsId>
+            <dockerCommand></dockerCommand>
+            <hostname></hostname>
+            <dnsHosts/>
+            <network></network>
+            <volumes>
+              <string>/home/jenkins/vvv:/home/jenkins/vvv</string>
+              <string>/tmp/corefiles:/tmp/corefiles</string>
+            </volumes>
+            <volumesFrom2/>
+            <environment/>
+            <bindPorts></bindPorts>
+            <bindAllPorts>false</bindAllPorts>
+            <memoryLimit>9192</memoryLimit>
+            <memorySwap>-1</memorySwap>
+            <cpuShares>12</cpuShares>
+            <privileged>false</privileged>
+            <tty>false</tty>
+            <extraHosts/>
+          </dockerTemplateBase>
+          <removeVolumes>false</removeVolumes>
+          <pullStrategy>PULL_NEVER</pullStrategy>
+          <nodeProperties class="empty-list"/>
+        </com.nirima.jenkins.plugins.docker.DockerTemplate>
+      </templates>
+      <dockerApi>
+        <dockerHost plugin="docker-commons@1.11">
+          <uri>tcp://172.30.23.9:4550</uri>
+        </dockerHost>
+        <connectTimeout>60</connectTimeout>
+      </dockerApi>
+      <containerCap>100</containerCap>
+      <exposeDockerHost>false</exposeDockerHost>
+    </com.nirima.jenkins.plugins.docker.DockerCloud>
+  </clouds>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>OpenSDL</name>
+      <description>Builds and tests for develop</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>OpenSDL_develop_ATF_smoke</string>
+        <string>OpenSDL_Nightly</string>
+        <string>OpenSDL_Nightly_Coverage</string>
+        <string>OpenSDL_PR</string>
+        <string>OpenSDL_PUSH</string>
+        <string>OpenSDL_Release</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.11">
+      <owner class="hudson" reference="../../.."/>
+      <name>History</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>EXT_FUNC_NIGHTLY</string>
+        <string>EXT_FUNC_PULL_REQUEST_STATUS</string>
+        <string>EXT_FUNC_PUSH</string>
+        <string>OpenSDL_Release</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+      <useCssStyle>false</useCssStyle>
+      <includeStdJobList>false</includeStdJobList>
+      <hideJenkinsPanels>false</hideJenkinsPanels>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets/>
+      <rightPortlets/>
+      <topPortlets>
+        <hudson.plugins.view.dashboard.builds.LatestBuilds>
+          <id>dashboard_portlet_29848</id>
+          <name>Latest builds</name>
+          <numBuilds>20</numBuilds>
+        </hudson.plugins.view.dashboard.builds.LatestBuilds>
+      </topPortlets>
+      <bottomPortlets/>
+    </hudson.plugins.view.dashboard.Dashboard>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>SendLocation</name>
+      <description>Job set for SendLocation feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0004-sendlocation-updates.md&quot;&gt;SendLocation Updates&lt;/a&gt;&#xd;
+&lt;br&gt;Pull Request: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_core/pull/1821&quot;&gt;SendLocation updates feature #1821&lt;/a&gt;</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*SendLocation.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>LastMileNavigation</name>
+      <description>Job set for LastMileNavigation feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0003-last-mile-navigation.md&quot;&gt;Last Mile Navigation&lt;/a&gt;&#xd;
+&lt;br&gt;Pull Request : &lt;a href=&quot;https://github.com/smartdevicelink/sdl_core/pull/1820&quot;&gt;Last mile navigation feature #1820&lt;/a&gt;</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>^(!test|PR|ATF|PUSH|NIGHTLY).*LastMileNavigation.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>FuelRange</name>
+      <description>Job set for FuelRange feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0072-New-vehicle-data-FuelRange.md&quot;&gt;New vehicle data - FuelRange&lt;/a&gt;&#xd;
+&lt;br&gt;Pull Request is open: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_core/pull/1822&quot;&gt;1822&lt;/a&gt;</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*FuelRange.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>EngineOilLife</name>
+      <description>Job set for EngineOilLife feature.&#xd;
+&lt;br&gt;Proposal 0082: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0082-New-vehicle-data-EngineOilLife.md&quot;&gt;New vehicle data - EngineOilLife&lt;/a&gt;&#xd;
+&lt;br&gt;Pull Request is open &lt;a href=&quot;https://github.com/smartdevicelink/sdl_core/pull/1823&quot;&gt;1823&lt;/a&gt;</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[4]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>(?!test.*).*EngineOilLife.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>5 delivered features</name>
+      <description>Tests for features which already merged into develop.</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>ATF_IAP_over_BT</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>1 ATF</name>
+      <description>&lt;EM&gt;ATF test and atf smoke jobs for SDL builds from Roadmap2017 features&lt;/EM&gt;&#xd;
+&lt;br&gt;Triggers: After success of accorded build job&#xd;
+&lt;br&gt;Branches:&#xd;
+&lt;li&gt;feature/EngineOilLife&#xd;
+&lt;li&gt;feature/FuelRange&#xd;
+&lt;li&gt;feature/LastMileNavigation&#xd;
+&lt;li&gt;feature/SendLocation</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[6]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>(ATF.*)(EngineOilLife|FuelRange|LastMileNavigation|SendLocation|IAP).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.11">
+      <owner class="hudson" reference="../../.."/>
+      <name>0 NIGHTLY-PR-PUSH</name>
+      <description>&lt;EM&gt;SDL builds for Roadmap2017 features and develop&lt;/EM&gt;&#xd;
+&lt;br&gt;Triggers: Nightly and Push&#xd;
+&lt;br&gt;Features: &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/EngineOilLife/&quot;&gt;EngineOilLife&lt;/a&gt;,  &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/FuelRange/&quot;&gt;FuelRange&lt;/a&gt;,  &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/LastMileNavigation/&quot;&gt;LastMileNavigation&lt;/a&gt;,  &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/SendLocation/&quot;&gt;SendLocation&lt;/a&gt;,  &#xd;
+&lt;br&gt;And develop&#xd;
+&lt;br&gt;Each build has 2 downstream jobs: atf test, atf smoke test&#xd;
+      </description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>OpenSDL_Nightly_Coverage</string>
+        <string>OpenSDL_PR</string>
+        <string>test_jenkinsfile</string>
+      </jobNames>
+      <jobFilters>
+        <org.jenkinsci.plugins.github__branch__source.GitHubPullRequestFilter plugin="github-branch-source@2.0.5"/>
+      </jobFilters>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>(NIGHTLY|PUSH|PR|OpenSDL)(.*(IAP|EngineOilLife|FuelRange|LastMileNavigation|SendLocation|develop).*)</includeRegex>
+      <recurse>false</recurse>
+      <useCssStyle>false</useCssStyle>
+      <includeStdJobList>false</includeStdJobList>
+      <hideJenkinsPanels>false</hideJenkinsPanels>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets/>
+      <rightPortlets/>
+      <topPortlets>
+        <hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
+          <id>dashboard_portlet_4832</id>
+          <name>Jenkins jobs list</name>
+        </hudson.plugins.view.dashboard.core.HudsonStdJobsPortlet>
+        <hudson.plugins.view.dashboard.core.UnstableJobsPortlet>
+          <id>dashboard_portlet_27367</id>
+          <name>Unstable Jobs</name>
+          <showOnlyFailedJobs>false</showOnlyFailedJobs>
+          <recurse>false</recurse>
+        </hudson.plugins.view.dashboard.core.UnstableJobsPortlet>
+      </topPortlets>
+      <bottomPortlets>
+        <hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
+          <id>dashboard_portlet_1808</id>
+          <name>Test Statistics Grid</name>
+          <useBackgroundColors>false</useBackgroundColors>
+          <skippedColor>FDB813</skippedColor>
+          <successColor>71E66D</successColor>
+          <failureColor>E86850</failureColor>
+          <hideZeroTestProjects>false</hideZeroTestProjects>
+        </hudson.plugins.view.dashboard.test.TestStatisticsPortlet>
+      </bottomPortlets>
+    </hudson.plugins.view.dashboard.Dashboard>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>test</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>test_git_update</string>
+        <string>test_git_update_vvv</string>
+        <string>test_jira</string>
+        <string>test_multijob</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>test.*|core.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Send_location_for_mobile_nav</name>
+      <description>Job set for send_location_for_mobile_nav feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0130-SendLocation-for-Mobile-Nav.md&quot;&gt; 0130-SendLocation-for-Mobile-Nav &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/send_location_for_mobile_nav</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*send_location_for_mobile_nav.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Template_images</name>
+      <description>Job set for template_images feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0062-template-images.md&quot;&gt; 0062-template-images &lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1588&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1588 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/template_images</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*template_images.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Expandable_design_for_proprietary_data_exchange</name>
+      <description>Job set for expandable_design_for_proprietary_data_exchange feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0083-Expandable-design-for-proprietary-data-exchange.md&quot;&gt; 0083-Expandable-design-for-proprietary-data-exchange &lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1734&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1734 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/expandable_design_for_proprietary_data_exchange</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*expandable_design_for_proprietary_data_exchange.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Expand_put_file</name>
+      <description>Job set for expand_put_file feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0037-Expand-Mobile-putfile-RPC.md&quot;&gt; 0037-Expand-Mobile-putfile-RPC&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1455&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1455 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/expand_put_file</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*expand_put_file.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>App_icon_resumption</name>
+      <description>Job set for app_icon_resumption feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0041-appicon-resumption.md&quot;&gt;0041-appicon-resumption &lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1456&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1456&lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/app_icon_resumption</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*app_icon_resumption.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Get_system_time</name>
+      <description>Job set for get_system_time feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0120-GetSystemTime.md&quot;&gt; 0120-GetSystemTime &lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1963&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1963 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/get_system_time</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*get_system_time.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Dtls_encryption</name>
+      <description>Job set for dtls_encryption feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0040-DTLS-encryption.md&quot;&gt; 0040-DTLS-encryption&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1479&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1479 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/dtls_encryption</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*dtls_encryption.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>New_remote_control_modules</name>
+      <description>Job set for new_remote_control_modules feature.&#xd;
+&lt;br&gt;Proposals: &#xd;
+&lt;br&gt;&lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0099-new-remote-control-modules-and-parameters.md&quot;&gt; 0099-new-remote-control-modules-and-parameters &lt;/a&gt;&#xd;
+&lt;br&gt;&lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0105-remote-control-seat.md&quot;&gt; 0105-remote-control-seat  &lt;/a&gt;&#xd;
+&lt;br&gt;&lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0106-remote-control-onRcStatus-notification.md&quot;&gt; 0106-remote-control-onRcStatus-notification  &lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1798&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1798 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/new_remote_control_modules</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>ATF_RC_AUDIO_LIGHT_HMI_SETTINGS</string>
+        <string>ATF_RC_CLIMATE_RADIO</string>
+        <string>ATF_RC_OnRCStatus</string>
+        <string>ATF_RC_SEAT</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*new_remote_control_modules.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Mobile_projection</name>
+      <description>Job set for mobile_projection feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0031-mobile-projection.md&quot;&gt; 0031-mobile-projection&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1344&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1344 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/mobile_projection</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*mobile_projection($|_Smoke)</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>2 RoadMap2018</name>
+      <description>&lt;EM&gt;SDL builds for Roadmap2018 features&lt;/EM&gt;&#xd;
+&lt;br&gt;&lt;b&gt;Triggers: &lt;/b&gt;Pull Request and Push into feature branch &#xd;
+&lt;br&gt;Each build usualy has 2 downstream jobs: atf test, atf smoke test  --&gt; on tab &lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/3%20RoadMap2018_Tests/&quot;&gt;3 RoadMap2018_Tests&lt;/a&gt;&#xd;
+&lt;br&gt;&lt;b&gt;Features: &lt;/b&gt;&#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/App_icon_resumption/&quot;&gt;app_icon_resumption&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Audio_file_playback_tts_chunks/&quot;&gt;audio_file_playback_tts_chunks&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Dtls_encryption/&quot;&gt;dtls_encryption&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Expand_put_file/&quot;&gt;expand_put_file&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Expandable_design_for_proprietary_data_exchange/&quot;&gt;expandable_design_for_proprietary_data_exchange&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Get_system_time/&quot;&gt;get_system_time&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Handling_VR_help_requests/&quot;&gt;handling_VR_help_requests&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Low_voltage/&quot;&gt;low_voltage&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Mobile_projection/&quot;&gt;mobile_projection&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Mobile_projection_2/&quot;&gt;mobile_projection_2&lt;/a&gt;,&#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/New_remote_control_modules/&quot;&gt;new_remote_control_modules&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Rpc_design_refactoring/&quot;&gt;rpc_design_refactoring&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/SDL_must_transfer_RPC_with_invalid_image/&quot;&gt;SDL_must_transfer_RPC_with_invalid_image&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Send_location_for_mobile_nav/&quot;&gt;send_location_for_mobile_nav&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Submenu_icon/&quot;&gt;submenu_icon&lt;/a&gt;, &#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Template_images/&quot;&gt;template_images&lt;/a&gt;,&#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/Tire_pressure_additions/&quot;&gt;tire_pressure_additions&lt;/a&gt;,&#xd;
+&lt;a href=&quot;http://opensdl-jenkins.luxoft.com:8080/view/TurnSignal/&quot;&gt;TurnSignal&lt;/a&gt;.&#xd;
+&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>NIGHTLY_app_icon_resumption</string>
+        <string>NIGHTLY_dtls_encryption</string>
+        <string>NIGHTLY_expand_put_file</string>
+        <string>NIGHTLY_expandable_design_for_proprietary_data_exchange</string>
+        <string>NIGHTLY_get_system_time</string>
+        <string>NIGHTLY_low_voltage</string>
+        <string>NIGHTLY_mobile_projection</string>
+        <string>NIGHTLY_mobile_projection_2</string>
+        <string>NIGHTLY_new_remote_control_modules</string>
+        <string>NIGHTLY_template_images</string>
+        <string>NIGHTLY_tire_pressure_additions</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>^(PR|PUSH)_(submenu_icon|audio_file_playback_tts_chunks|SDL_must_transfer_RPC_with_invalid_image|handling_VR_help_requests|low_voltage|mobile_projection.*|send_location_for_mobile_nav|template_images|expandable_design_for_proprietary_data_exchange|expand_put_file|app_icon_resumption|get_system_time|dtls_encryption|new_remote_control_modules|tire_pressure_additions)</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>3 RoadMap2018_Tests</name>
+      <description>ATF tests for builds from tab &quot;2 RoadMap2018&quot;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>^(ATF)_(RC|submenu_icon|audio_file_playback_tts_chunks|SDL_must_transfer_RPC_with_invalid_image|handling_VR_help_requests|low_voltage|mobile_projection|send_location_for_mobile_nav|template_images|expandable_design_for_proprietary_data_exchange|expand_put_file|app_icon_resumption|get_system_time|dtls_encryption|new_remote_control_modules)($|_Smoke|.*)</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Low_voltage</name>
+      <description>Job set for low_voltage feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/KhrystynaDubovyk/sdl_evolution/blob/32153276924a66481d48807db61c7302b9216937/proposals/NNNN-SDL-behavior-in-case%20of-Low-Voltage.md&quot;&gt; SDL beahavior in case of Low Voltage &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/low_voltage</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*(low_voltage).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>4 Release4.5_defects</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[20]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*(defect|build).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Handling_VR_help_requests</name>
+      <description>Job set for handling_VR_help_requests feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0122-New_rules_for_providing_VRHelpItems_VRHelpTitle.md&quot;&gt; Handling VR help requests when application does not send VR help prompt&lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/handling_VR_help_requests</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[20]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*(handling_VR_help_requests).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>SDL_must_transfer_RPC_with_invalid_image</name>
+      <description>Job set for SDL_must_transfer_RPC_with_invalid_image feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0042-transfer-invalid-image-rpc.md&quot;&gt;SDL must transfer RPC’s with invalid image reference parameters to the HMI&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link:&lt;a href =&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1428&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1428&lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/SDL_must_transfer_RPC_with_invalid_image</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[20]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*(SDL_must_transfer_RPC_with_invalid_image).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Audio_file_playback_tts_chunks</name>
+      <description>Job set for audio_file_playback_tts_chunks feature.&#xd;
+&lt;br&gt;&lt;b&gt;Proposal:&lt;/b&gt; &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0014-adding-audio-file-playback-to-ttschunk.md&quot;&gt; 0014 Adding Audio File Playback to TTSChunk&lt;/a&gt;&#xd;
+&lt;br&gt;&lt;b&gt;GitHub issue link: &lt;/b&gt;&lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1277&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1277 &lt;/a&gt;&#xd;
+&lt;br&gt;&lt;b&gt;Branch:&lt;/b&gt; feature/audio_file_playback_tts_chunks</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*(audio_file_playback_tts_chunks).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Submenu_icon</name>
+      <description>Job set for submenu_icon feature.&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0085-submenu-icon.md&quot;&gt; SubMenu icon&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1747&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1747 &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/submenu_icon</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[24]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*(submenu_icon).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>6 Regression</name>
+      <description>Builds with parameters and ATF tests: &#xd;
+&lt;li&gt;build with CMake Arguments: -DBUILD_TESTS=OFF -DEXTENDED_POLICY=EXTERNAL_PROPRIETARY&#xd;
+    &lt;ul style=&quot;list-style-type:none&quot;&gt;&#xd;
+    &lt;li&gt;TEST_SET=policies_happy_paths_EXTERNAL_PROPRIETARY.txt &lt;/li&gt;&#xd;
+    &lt;/ul&gt;&#xd;
+&lt;li&gt;build with CMake Arguments: -DBUILD_TESTS=OFF -DEXTENDED_POLICY=PROPRIETARY&#xd;
+    &lt;ul style=&quot;list-style-type:none&quot;&gt;&#xd;
+    &lt;li&gt;TEST_SET=policies_happy_paths_PROPRIETARY.txt &lt;/li&gt;&#xd;
+    &lt;li&gt;TEST_SET=rc_CLIMATE_RADIO.txt&lt;/li&gt;&#xd;
+    &lt;li&gt;TEST_SET=policies_smoke.txt&lt;/li&gt;&#xd;
+    &lt;li&gt;TEST_SET=smoke_tests.txt&lt;/li&gt;&#xd;
+    &lt;/ul&gt;&#xd;
+&lt;li&gt;build with CMake Arguments: -DBUILD_TESTS=OFF -DEXTENDED_POLICY=HTTP&#xd;
+    &lt;ul style=&quot;list-style-type:none&quot;&gt;&#xd;
+    &lt;li&gt;TEST_SET=policies_happy_paths_HTTP.txt &lt;/li&gt;&#xd;
+    &lt;/ul&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>^Regression.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Mobile_projection_2</name>
+      <description>Job set for mobile_projection_2&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/XXXX-mobile-projection_2.md&quot;&gt; n/a&lt;/a&gt;&#xd;
+&lt;br&gt;GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/&quot;&gt;n/a &lt;/a&gt;&#xd;
+&lt;br&gt;Branch: feature/mobile_projection_2</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*mobile_projection_2.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Tire_pressure_additions</name>
+      <description>Job set for &lt;b&gt;tire_pressure_additions&lt;/b&gt; feature.&#xd;
+&lt;br&gt;&lt;b&gt;Proposal: &lt;/b&gt;&lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0097-tire-pressure-additions.md&quot;&gt; 0097-tire-pressure-additions&lt;/a&gt;&#xd;
+&lt;br&gt;&lt;b&gt;GitHub issue link: &lt;/b&gt;&lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1766&quot;&gt;https://github.com/SmartDeviceLink/sdl_core/issues/1766 &lt;/a&gt;&#xd;
+&lt;br&gt;&lt;b&gt;Branch:&lt;/b&gt; feature/tire_pressure_additions</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*tire_pressure_additions($|_Smoke)</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>TurnSignal</name>
+      <description>GitHub issue link: &lt;a href=&quot;https://github.com/SmartDeviceLink/sdl_core/issues/1859&quot;&gt;SmartDeviceLink/sdl_core/issues/1859&lt;/a&gt;&#xd;
+&lt;br&gt;Proposal: &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0107-New-vehicle-data-turnSignal.md&quot;&gt;0107-New-vehicle-data-turnSignal&lt;/a&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[28]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*TurnSignal.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Rpc_design_refactoring</name>
+      <description>&lt;b&gt;Github: &lt;/b&gt; &lt;a href=&quot;https://github.com/smartdevicelink/sdl_core/tree/feature/rpc_design_refactoring&quot;&gt;feature/rpc_design_refactoring&lt;/a&gt;&lt;br&gt;&#xd;
+&lt;b&gt;Proposal: &lt;/b&gt; &lt;a href=&quot;https://github.com/smartdevicelink/sdl_evolution/blob/master/proposals/0168-rpc-design-refactoring.md&quot;&gt;0168-rpc-design-refactoring&lt;/a&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*rpc_design_refactoring.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Rc_refactoring</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*rc_refactoring.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Rc_seat</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[31]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*rc_seat.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Rc_new_modules</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[31]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*rc_new_modules.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Rc_OnRCStatus</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[31]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*rc_OnRCStatus.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>RC</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[31]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.plugins.builton.BuiltOnColumn plugin="built-on-column@1.1"/>
+        <hudson.plugins.git.GitBranchSpecifierColumn plugin="git@3.5.1"/>
+      </columns>
+      <includeRegex>.*(rpc_design_refactoring|rc_refactoring|rc_seat|rc_new_modules|rc_OnRCStatus).*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+  </views>
+  <primaryView>2 RoadMap2018</primaryView>
+  <slaveAgentPort>50000</slaveAgentPort>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>true</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties>
+    <hudson.slaves.EnvironmentVariablesNodeProperty>
+      <envVars serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../../views/listView[30]/jobNames/comparator"/>
+          </default>
+          <int>2</int>
+          <string>ATF_CURRENT</string>
+          <string>develop</string>
+          <string>LAST_SUCCESSFULL</string>
+          <string>0</string>
+        </tree-map>
+      </envVars>
+    </hudson.slaves.EnvironmentVariablesNodeProperty>
+  </globalNodeProperties>
+  <noUsageStatistics>true</noUsageStatistics>
+</hudson>
