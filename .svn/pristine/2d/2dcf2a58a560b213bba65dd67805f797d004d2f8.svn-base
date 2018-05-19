@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<org.jenkinsci.plugins.ghprb.GhprbRepository plugin="ghprb@1.36.2">
-  <reponame>smartdevicelink/sdl_atf</reponame>
-  <pullRequests class="concurrent-hash-map"/>
-</org.jenkinsci.plugins.ghprb.GhprbRepository>
