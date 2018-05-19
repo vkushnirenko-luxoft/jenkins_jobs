@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Update:admin</permission>
+      <permission>hudson.model.Run.Delete:admin</permission>
+      <permission>hudson.model.Item.Workspace:aderiabin</permission>
+      <permission>hudson.model.Item.Workspace:admin</permission>
+      <permission>hudson.model.Item.Workspace:anonymous</permission>
+      <permission>hudson.model.Item.Workspace:iikovalenko</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Delete:admin</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.ManageDomains:admin</permission>
+      <permission>hudson.model.Run.Replay:admin</permission>
+      <permission>hudson.model.Item.Configure:admin</permission>
+      <permission>hudson.model.Item.Cancel:aderiabin</permission>
+      <permission>hudson.model.Item.Cancel:admin</permission>
+      <permission>hudson.model.Item.Cancel:iikovalenko</permission>
+      <permission>hudson.model.Item.Read:aderiabin</permission>
+      <permission>hudson.model.Item.Read:admin</permission>
+      <permission>hudson.model.Item.Read:anonymous</permission>
+      <permission>hudson.model.Item.Read:iikovalenko</permission>
+      <permission>hudson.model.Item.Delete:admin</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:aderiabin</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:admin</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:anonymous</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.View:iikovalenko</permission>
+      <permission>com.cloudbees.plugins.credentials.CredentialsProvider.Create:admin</permission>
+      <permission>hudson.model.Item.Build:aderiabin</permission>
+      <permission>hudson.model.Item.Build:admin</permission>
+      <permission>hudson.model.Item.Build:iikovalenko</permission>
+      <permission>hudson.scm.SCM.Tag:admin</permission>
+      <permission>hudson.model.Item.Move:admin</permission>
+      <permission>hudson.model.Item.Discover:aderiabin</permission>
+      <permission>hudson.model.Item.Discover:admin</permission>
+      <permission>hudson.model.Item.Discover:anonymous</permission>
+      <permission>hudson.model.Item.Discover:iikovalenko</permission>
+      <permission>hudson.model.Item.ViewStatus:aderiabin</permission>
+      <permission>hudson.model.Item.ViewStatus:admin</permission>
+      <permission>hudson.model.Item.ViewStatus:anonymous</permission>
+      <permission>hudson.model.Item.ViewStatus:iikovalenko</permission>
+      <permission>hudson.model.Run.Update:admin</permission>
+    </hudson.security.AuthorizationMatrixProperty>
+    <org.datadog.jenkins.plugins.datadog.DatadogJobProperty plugin="datadog@0.5.6">
+      <emitOnCheckout>false</emitOnCheckout>
+    </org.datadog.jenkins.plugins.datadog.DatadogJobProperty>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.26.1">
+      <projectUrl>https://github.com/smartdevicelink/sdl_atf/</projectUrl>
+      <displayName></displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@1.5.3">
+          <name>SDL_BUILD</name>
+          <description></description>
+          <randomName>choice-parameter-783242220958093</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.27">
+              <script>import hudson.model.*
+import jenkins.model.*
+
+BUILD_JOB_NAME = &quot;EXT_FUNC_NIGHTLY/CRQ/OpenSDL_Func_NIGHTLY_CRQ&quot;
+
+
+def getJobs() {
+    def hi = Hudson.instance
+    return hi.getItems(Job)
+}
+
+def getBuildJob() {
+    def buildJob = null
+    buildJob = Jenkins.instance.getItemByFullName(&quot;EXT_FUNC_NIGHTLY/CRQ/OpenSDL_Func_NIGHTLY_CRQ&quot;)
+    return buildJob
+}
+
+def getAllBuildNumbers(Job job) {
+    def buildNumbers = []
+    (job.getBuilds()).each { build -&gt;
+        if (build.getResult().toString().equals(&quot;SUCCESS&quot;)) {buildNumbers.add(build.number)}
+    }
+    return buildNumbers
+}
+
+def buildJob = getBuildJob()
+return getAllBuildNumbers(buildJob)</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.27">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>ATF_Multi_Test</projectName>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>false</filterable>
+        </org.biouno.unochoice.ChoiceParameter>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>POLICY</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>PROPRIETARY</string>
+              <string>EXTERNAL_PROPRIETARY</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>REPOSITORY</name>
+          <description></description>
+          <defaultValue>https://github.com/smartdevicelink/sdl_atf_test_scripts</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BRANCH</name>
+          <description></description>
+          <defaultValue>feature/extended_policy_functionality</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TEST_SET</name>
+          <description></description>
+          <defaultValue>policies_smoke.txt</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.9.0">
+      <maxConcurrentPerNode>1</maxConcurrentPerNode>
+      <maxConcurrentTotal>3</maxConcurrentTotal>
+      <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+      <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
+      <paramsToUseForLimit></paramsToUseForLimit>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>atf_slave3</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+#echo ${WORKSPACE}
+#sudo apt-get -y install sqlite
+#git submodule init
+#git submodule update
+#sed -i &apos;/config.color = true/c\config.color = false&apos; ./modules/config.lua
+#make
+
+
+#cat ./modules/config.lua
+#wget http://172.30.23.4:8081/artifactory/Utils/SDL_environment_setup.sh
+#sudo chmod +x SDL_environment_setup.sh
+#sudo chmod 777 SDL_environment_setup.sh
+
+echo &quot;Script started&quot;
+
+#mkdir aut
+#cd aut
+#wget http://172.30.23.4:8081/artifactory/OpenSDL_Func_Nightly/${SDL_BUILD}/OpenSDL_${POLICY}.tar.gz
+
+#if [ &quot;$POLICY&quot; == &quot;HTTP&quot; ]; then
+#	TEST_SET=&quot;policies_happy_paths_HTTP.txt&quot;
+#fi
+#if [ &quot;$POLICY&quot; == &quot;EXTENDED&quot; ]; then
+#	TEST_SET=&quot;policies_happy_paths_EXTERNAL_PROPRIETARY.txt&quot;
+#fi
+#if [ &quot;$POLICY&quot; == &quot;PROPRIETARY&quot; ]; then
+#	TEST_SET=&quot;policies_happy_paths_PROPRIETARY.txt&quot;
+#fi
+
+#tar -xvf OpenSDL_${POLICY}.tar.gz
+#cd bin
+#pwd
+#export LD_LIBRARY_PATH=.
+#sudo ldconfig
+#cd ../..
+git clone ${REPOSITORY}
+cd sdl_atf_test_scripts
+git checkout ${BRANCH}
+pwd
+ls -l
+#cd ..
+#ls -l
+#cp -r ${WORKSPACE}/sdl_atf_test_scripts/. ${WORKSPACE}/
+#pwd
+#cp -rf ${WORKSPACE}/aut/bin/api/. ${WORKSPACE}/data/
+#ls -l data/
+#echo ${POLICY}
+
+#mkdir tmp
+
+#echo &quot;./test_scripts/Polices/Policies_Security/002_ATF_P_Policies_Performance_Requirement.lua&quot; &gt;&gt; test_set.txt
+#echo &quot;./test_scripts/Polices/build_options/ATF_PM_change_status_UPDATE_NEEDED_after_timeout_expired.lua&quot; &gt;&gt; test_set.txt
+#echo &quot;./test_scripts/Polices/build_options/011_ATF_P_TC_PTS_Define_URL_to_send_PTS_HTTP.lua&quot; &gt;&gt; test_set.txt
+
+#echo &quot;Backup SDL&quot;
+#Backup
+#./SDL_environment_setup.sh -b ${WORKSPACE}/aut/bin
+
+D=$(date +%s)
+sudo mkdir /home/jenkins/build_tmp/$D
+TMP_DIR=&quot;/home/jenkins/build_tmp/$D&quot;
+sudo chmod -R 777 $TMP_DIR
+echo $TMP_DIR
+
+echo &quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;ATF Pull Request ${POLICY} Report - Build#${BUILD_NUMBER}&lt;/title&gt;&lt;/head&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+
+echo &quot;&lt;script src=&apos;https://code.jquery.com/jquery-3.1.1.min.js&apos; integrity=&apos;sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=&apos; crossorigin=&apos;anonymous&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://code.jquery.com/ui/1.12.0/jquery-ui.min.js&apos; integrity=&apos;sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=&apos; crossorigin=&apos;anonymous&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;link href=&apos;https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css&apos; rel=&apos;stylesheet&apos;&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;link href=&apos;https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css&apos; rel=&apos;stylesheet&apos;&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;link href=&apos;https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css&apos; rel=&apos;stylesheet&apos;&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;script src=&apos;https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap4.min.js&apos;&gt;&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+
+
+echo &quot;&lt;script&gt; \$(document).ready(function() {\$(&apos;#example&apos;).DataTable({paging: false, bSortClasses : false, dom: &apos;Bfrtip&apos;, buttons: [&apos;copyHtml5&apos;, &apos;excelHtml5&apos;, &apos;csvHtml5&apos;, &apos;pdfHtml5&apos;]});} );&lt;/script&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+
+echo &quot;&lt;h3&gt;&lt;a href=&apos;${BUILD_URL}&apos;&gt;${JOB_NAME}&lt;/a&gt;&lt;/h3&gt;&lt;br&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;Detailed regression report - &lt;a href=&apos;${BUILD_URL}/testReport/(root)/lua/&apos;&gt;Tests Run Details&lt;/a&gt;&lt;br&gt;&lt;br&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;table border=&apos;1&apos; id=&quot;example&quot; class=&apos;table table-striped table-bordered display compact stripe hover&apos; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Test name&lt;/th&gt;&lt;th&gt;Test Result&lt;/th&gt;&lt;th&gt;Execution time.&lt;/th&gt;&lt;th&gt;Jira Issue&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&quot; &gt;&gt; $TMP_DIR/atf_report.html
+echo &quot;&lt;testsuites&gt;&quot; &gt;&gt; $TMP_DIR/junit.xml
+total_time=0;
+pased_tests=0;
+failed_tests=0;
+echo &quot;&lt;testsuite name=&apos;ALL TESTS_${POLICY}&apos;&gt;&quot; &gt;&gt; $TMP_DIR/junit.xml
+#for i in $(find ./tmp/ -type f -name &quot;*.lua&quot;);
+touch $TMP_DIR/failed_tests.txt;
+touch $TMP_DIR/success_tests.txt;
+
+cd ${WORKSPACE}
+
+#NUM=0
+#while read -r i
+#do
+#	echo $(echo $i | awk &apos;{print $1}&apos;) &gt; tmp_test_set_$NUM.txt
+#    (( NUM=NUM+1 ))
+#done &lt; ./test_sets/$TEST_SET
+split -l 1 /home/jenkins/workspace/ATF_Multi_Test/sdl_atf_test_scripts/test_sets/$TEST_SET tmp_test_set.
+
+sudo chmod -R 777 $TMP_DIR
+
+#sudo apt-get update
+
+#sudo apt-get install -y \
+#    apt-transport-https \
+#    ca-certificates \
+#    curl \
+#    software-properties-common
+    
+#sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+#sudo add-apt-repository \
+#   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+#   $(lsb_release -cs) \
+#   stable&quot;
+
+#sudo apt-get update
+
+#sudo apt-get install docker-ce -y
+
+echo &quot;TMP_DIR=$TMP_DIR&quot; &gt; tmp.prop
+#cat tmp.prop
+
+#TMP_IMAGE=$(sudo docker -H ${DOCKER_HOST} commit ${DOCKER_CONTAINER_ID} tmp_atf)
+#echo $TMP_IMAGE
+#echo &quot;TMP_IMAGE=$TMP_IMAGE&quot; &gt;&gt; tmp.prop
+#END of preparation process
+
+
+</command>
+    </hudson.tasks.Shell>
+    <org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder plugin="conditional-buildstep@1.3.5">
+      <condition class="org.jenkins_ci.plugins.run_condition.core.StatusCondition" plugin="run-condition@1.0">
+        <worstResult>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
+        </worstResult>
+        <bestResult>
+          <name>SUCCESS</name>
+          <ordinal>0</ordinal>
+          <color>BLUE</color>
+          <completeBuild>true</completeBuild>
+        </bestResult>
+      </condition>
+      <buildStep class="hudson.plugins.parameterizedtrigger.TriggerBuilder" plugin="parameterized-trigger@2.33">
+        <configs>
+          <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+            <configs>
+              <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+                <properties>SPACE=${WORKSPACE}
+SDL_BUILD=${SDL_BUILD}</properties>
+              </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+              <hudson.plugins.parameterizedtrigger.FileBuildParameters>
+                <propertiesFile>tmp.prop</propertiesFile>
+                <failTriggerOnMissing>false</failTriggerOnMissing>
+                <useMatrixChild>false</useMatrixChild>
+                <onlyExactRuns>false</onlyExactRuns>
+              </hudson.plugins.parameterizedtrigger.FileBuildParameters>
+            </configs>
+            <configFactories>
+              <hudson.plugins.parameterizedtrigger.BinaryFileParameterFactory>
+                <parameterName>TEST_LINE</parameterName>
+                <filePattern>tmp_test_set*</filePattern>
+                <noFilesFoundAction>SKIP</noFilesFoundAction>
+              </hudson.plugins.parameterizedtrigger.BinaryFileParameterFactory>
+            </configFactories>
+            <projects>ATF_Oneliner</projects>
+            <condition>ALWAYS</condition>
+            <triggerWithNoParameters>false</triggerWithNoParameters>
+            <triggerFromChildProjects>false</triggerFromChildProjects>
+            <block/>
+            <buildAllNodesWithLabel>false</buildAllNodesWithLabel>
+          </hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+        </configs>
+      </buildStep>
+      <runner class="org.jenkins_ci.plugins.run_condition.BuildStepRunner$Fail" plugin="run-condition@1.0"/>
+    </org.jenkinsci.plugins.conditionalbuildstep.singlestep.SingleConditionalBuilder>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+cat tmp.prop
+
+seconds2time ()
+{
+   T=$1
+   D=$((T/60/60/24))
+   H=$((T/60/60%24))
+   M=$((T/60%60))
+   S=$((T%60))
+
+   if [[ ${D} != 0 ]]
+   then
+      printf &apos;%d days %02d:%02d:%02d&apos; $D $H $M $S
+   else
+      printf &apos;%02d:%02d:%02d&apos; $H $M $S
+   fi
+}
+
+file=&quot;./tmp.prop&quot;
+
+TMP=&quot;&quot;
+
+if [ -f &quot;$file&quot; ]
+then
+  echo &quot;$file found.&quot;
+
+  while IFS=&apos;=&apos; read -r key value
+  do
+    key=$(echo $key | tr &apos;.&apos; &apos;_&apos;)
+    eval &quot;${key}=&apos;${value}&apos;&quot;
+  done &lt; &quot;$file&quot;
+
+  TMP=${TMP_DIR}
+  DOCK_IMAGE=${TMP_IMAGE}
+else
+  echo &quot;$file not found.&quot;
+fi
+
+echo $DOCK_IMAGE
+
+total_time=0
+
+while read -r i
+do
+	(( total_time=total_time+$i ))
+done &lt; ${TMP}/time.txt
+
+pased_tests=$(cat ${TMP}/success_tests.txt | wc -l )
+failed_tests=$(cat ${TMP}/failed_tests.txt | wc -l )
+sudo echo &quot;&lt;/table&gt;&lt;br&gt;Total time: $(seconds2time $total_time)&quot; &gt;&gt; ${TMP}/atf_report.html
+sudo echo &quot;&lt;/br&gt;Passed=${pased_tests}, Failed=${failed_tests}&lt;/html&gt;&quot; &gt;&gt; ${TMP}/atf_report.html
+sudo echo &quot;&lt;/testsuite&gt;&quot; &gt;&gt; ${TMP}/junit.xml
+sudo echo &quot;&lt;/testsuites&gt;&quot; &gt;&gt; ${TMP}/junit.xml
+
+
+
+tar -zcvf SDL_Logs.tar.gz ${TMP}/SDL_Log_*.txt
+tar -zcvf TestingReports.tar.gz ${TMP}/TestingReports/
+tar -zcvf ErrorLogs.tar.gz ${TMP}/ErrorLog-*.txt
+
+cp ${TMP}/junit.xml ${WORKSPACE}/junit.xml
+cp ${TMP}/atf_report.html ${WORKSPACE}/atf_report.html
+cp ${TMP}/success_tests.txt ${WORKSPACE}/success_tests.txt
+cp ${TMP}/failed_tests.txt ${WORKSPACE}/failed_tests.txt
+
+sleep 5
+
+#sudo rm -rf ${TMP}
+
+#echo ${DOCK_IMAGE} | awk -F  &quot;:&quot; &apos;{print $2}&apos;
+#sudo docker -H ${DOCKER_HOST} rmi $(echo ${DOCK_IMAGE} | awk -F  &quot;:&quot; &apos;{print $2}&apos;)
+
+if [ ${failed_tests} -ne 0 ]; then
+ exit 1
+fi</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>atf_report.html,junit.xml,SDL_Logs.tar.gz,TestingReports.tar.gz,ErrorLogs.tar.gz,success_tests.txt,failed_tests.txt</artifacts>
+      <allowEmptyArchive>true</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.20">
+      <testResults>junit.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <healthScaleFactor>1.0</healthScaleFactor>
+      <allowEmptyResults>true</allowEmptyResults>
+    </hudson.tasks.junit.JUnitResultArchiver>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+  </buildWrappers>
+</project>

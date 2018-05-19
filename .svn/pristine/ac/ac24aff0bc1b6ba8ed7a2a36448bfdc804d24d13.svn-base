@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@2.0.1">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+      <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
+      <paramsToUseForLimit></paramsToUseForLimit>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>atf_slave3</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.jiraext.view.JiraExtBuildStep plugin="jira-ext@0.7">
+      <issueStrategy class="org.jenkinsci.plugins.jiraext.view.SingleTicketStrategy">
+        <issueKey>FORDTCN-810</issueKey>
+      </issueStrategy>
+      <extensions>
+        <org.jenkinsci.plugins.jiraext.view.UpdateField>
+          <fieldName>duedate</fieldName>
+          <fieldValue>2018-03-27</fieldValue>
+        </org.jenkinsci.plugins.jiraext.view.UpdateField>
+      </extensions>
+    </org.jenkinsci.plugins.jiraext.view.JiraExtBuildStep>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
